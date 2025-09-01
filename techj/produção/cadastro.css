@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #001f3f, #003366);
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+    flex-direction: column;
+    animation: fadeIn 1s ease-in-out;
+    position: relative;
+}
+
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: auto;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+h1 {
+    text-align: center;
+    color: #1e90ff;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: slideDown 1s ease;
+}
+
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+form {
+    background: rgba(0, 51, 102, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+    max-width: 450px;
+    width: 100%;
+    animation: popUp 1s ease;
+}
+
+
+@keyframes popUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+
+label {
+    display: block;
+    margin: 12px 0 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #1e90ff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    transition: border-color 0.3s ease;
+}
+
+
+input:focus {
+    outline: none;
+    border-color: white;
+    background-color: #1e90ff;
+    color: black;
+}
+
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #1e90ff, #004080);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-size: 1.2em;
+}
+
+
+button:hover {
+    background: linear-gradient(to right, #004080, #002244);
+    transform: scale(1.05);
+}
+
+
+button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}

@@ -1,0 +1,95 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #3b4d61, #1f2f3d);
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #1e90ff;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header .perfil {
+    display: flex;
+    align-items: center;
+}
+
+header .perfil button {
+    background: white;
+    color: #1e90ff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+header .perfil button:hover {
+    background: #004080;
+    color: white;
+}
+
+header .icones {
+    margin-left: 20px;
+    font-size: 1.5em;
+}
+
+/* Seção Nível */
+.nivel {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.barra-progresso {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    height: 20px;
+    margin: 10px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.progresso {
+    background: #1e90ff;
+    height: 100%;
+    border-radius: 5px 0 0 5px;
+}
+
+/* Cursos */
+.cursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.curso {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.curso h3 {
+    color: #1e90ff;
+    margin-bottom: 10px;
+}
+
+.curso p {
+    margin: 10px 0;
+}

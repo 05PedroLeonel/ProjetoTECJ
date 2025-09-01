@@ -1,0 +1,169 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+header {
+    background: #005f73;
+    padding: 15px 20px;
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header .profile a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+header .profile span {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+main h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #0a9396;
+    font-size: 28px;
+}
+
+
+.reminder {
+    background: #e0fbfc;
+    border-left: 5px solid #0a9396;
+    padding: 12px;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.reminder a {
+    color: #005f73;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.reminder a:hover {
+    text-decoration: underline;
+}
+
+
+section {
+    margin: 30px 0;
+}
+
+section h2 {
+    margin-bottom: 12px;
+    color: #005f73;
+    font-size: 20px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input[type="text"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+input[type="text"]:focus {
+    border-color: #0a9396;
+    box-shadow: 0 0 6px rgba(10,147,150,0.3);
+}
+
+
+button {
+    padding: 12px;
+    background: #0a9396;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #005f73;
+    transform: scale(1.03);
+}
+
+#btnEntrar {
+    display: block;
+    margin: 30px auto 0;
+    padding: 14px 30px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 6px;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s, transform 0.5s;
+    font-size: 14px;
+}
+
+.alert.success {
+    background-color: #4caf50;
+}
+
+.alert.error {
+    background-color: #f44336;
+}
+
+.alert.info {
+    background-color: #2196f3;
+}
+
+.alert.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+}

@@ -1,0 +1,1 @@
+<div class="card" style="max-width:520px;margin:30px auto"><h2>Cadastro</h2><form method="post" action="/register"><div class="form-row"><input name="email" class="input" placeholder="E-mail"></div><div class="form-row"><input name="senha" class="input" type="password" placeholder="Senha"></div><button class="btn">Criar</button></form></div>

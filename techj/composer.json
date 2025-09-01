@@ -1,0 +1,7 @@
+{
+  "name": "tecj/portal",
+  "description": "TECJ - MVC PHP project skeleton with Repository Pattern",
+  "type": "project",
+  "require": { "php": ">=8.0" },
+  "autoload": { "psr-4": { "App\\": "app/" } }
+}

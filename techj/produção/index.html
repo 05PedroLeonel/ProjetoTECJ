@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma TECJ</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo TECJ" width="30">
+      TECJ
+    </div>
+    <div class="perfil"> <a href="perfil.html" class="btn">👤 Meu Perfil</a></div>
+  </header>
+
+  <main class="main-container">
+    <div class="feed-container">
+      <h1>BEM-VINDO(A) À <span>PLATAFORMA TECJ</span></h1>
+      <p>Não se esqueça de criar seu perfil!</p>
+      <a href="perfil.html" class="btn">Criar Perfil</a>
+
+      <!-- Espaço para novas publicações -->
+   <div class="new-post">
+  <textarea id="postText" placeholder="O que você quer compartilhar?"></textarea>
+  <input type="file" id="postImage" accept="image/*">
+  <button id="publishBtn">Publicar</button>
+</div>
+
+      <!-- Feed de publicações -->
+      <div class="feed">
+        <div class="post">
+          <div class="post-header">
+            <strong>Lucas Giovani</strong>
+          </div>
+          <p>Depois de muita dedicação, finalmente conquistei a certificação DP-700!</p>
+          <img src="3f3c5219-dd9d-45c8-a6b0-86db82494279.png" alt="Certificação">
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <strong>Neymar Jr</strong>
+          </div>
+          <p>Jr’s the best </p>
+          <img src="0d672839-fb61-4586-9b22-7f9c7350fcbb.png" alt="Jogo de Futebol">
+        </div>
+
+    
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <div class="card">
+        <h3>Digite suas competências</h3>
+        <input type="text" placeholder="Ex: Frontend, Backend, etc">
+        <button>Buscar por Competências</button>
+      </div>
+
+      <div class="card">
+        <h3>Pesquisar Vagas de Interesse</h3>
+        <input type="text" placeholder="Ex: Estágio, Freelancer, Jovem Aprendiz">
+        <button>Buscar Vagas</button>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>
+
+
+<!--JS-->
+
+<script>
+const publishBtn = document.getElementById('publishBtn');
+const feed = document.querySelector('.feed');
+
+publishBtn.addEventListener('click', () => {
+  const text = document.getElementById('postText').value;
+  const imageInput = document.getElementById('postImage');
+  const file = imageInput.files[0];
+
+  if (!text && !file) {
+    alert('Escreva algo ou escolha uma imagem para publicar!');
+    return;
+  }
+
+  const postDiv = document.createElement('div');
+  postDiv.className = 'post';
+
+  const header = document.createElement('div');
+  header.className = 'post-header';
+  header.innerHTML = '<strong>Você</strong>'; // Nome do usuário, pode alterar
+
+  const content = document.createElement('p');
+  content.textContent = text;
+
+  postDiv.appendChild(header);
+  postDiv.appendChild(content);
+
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      postDiv.appendChild(img);
+      feed.prepend(postDiv); // Coloca no topo do feed
+    }
+    reader.readAsDataURL(file);
+  } else {
+    feed.prepend(postDiv);
+  }
+
+  // Limpar campos
+  document.getElementById('postText').value = '';
+  document.getElementById('postImage').value = '';
+});
+</script>

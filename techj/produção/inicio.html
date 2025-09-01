@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Entrada</title>
+    <link rel="stylesheet" href="inicio.css">
+</head>
+<body>
+    <header>
+        <div class="profile">
+            <a href="perfil.html">
+                <img src="caminho/para/sua/imagem.jpg" alt="Perfil" class="profile-pic">
+                <span>Meu Perfil</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <h1>Bem-vindo(a) ao TECJ</h1>
+        <div class="reminder">
+            <p>Não se esqueça de <a href="criar_perfil.html">criar seu perfil</a>!</p>
+        </div>
+
+        <section class="competencias">
+            <h2>Comece dizendo suas competências?</h2>
+            <form id="formCompetencias">
+                <label for="competencia">Digite suas competências:</label>
+                <input type="text" id="competencia" name="competencia" placeholder="Ex: Frontend, Backend, etc.">
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <section class="pesquisa-vagas">
+            <h2>Pesquisar Vagas de interesse</h2>
+            <form id="formVagas">
+                <label for="pesquisa">Digite o que está procurando:</label>
+                <input type="text" id="pesquisa" name="pesquisa" placeholder="Ex: Estágio, Freelancer, Jovem Aprendiz">
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <button id="btnEntrar">Começar</button>
+    </main>
+
+    <script>
+        document.getElementById('formCompetencias').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const competencia = document.getElementById('competencia').value.trim();
+            if (competencia) {
+                localStorage.setItem('competencias', JSON.stringify([...getCompetencias(), competencia]));
+                showAlert('Competências salvas!', 'success');
+                document.getElementById('formCompetencias').reset();
+            } else {
+                showAlert('Por favor, preencha o campo de competências.', 'error');
+            }
+        });
+
+        document.getElementById('formVagas').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const pesquisa = document.getElementById('pesquisa').value.trim();
+            if (pesquisa) {
+                localStorage.setItem('pesquisaVagas', JSON.stringify([...getPesquisas(), pesquisa]));
+                showAlert('Vagas de interesse salvas!', 'success');
+                document.getElementById('formVagas').reset();
+            } else {
+                showAlert('Por favor, preencha o campo de pesquisa.', 'error');
+            }
+        });
+
+        document.getElementById('btnEntrar').addEventListener('click', function() {
+            showAlert('Entrando no site...', 'info');
+            window.location.href = "index.html"; 
+        });
+
+        function getCompetencias() {
+            return JSON.parse(localStorage.getItem('competencias')) || [];
+        }
+
+        function getPesquisas() {
+            return JSON.parse(localStorage.getItem('pesquisaVagas')) || [];
+        }
+
+        function showAlert(message, type) {
+            const alertBox = document.createElement('div');
+            alertBox.className = `alert ${type}`;
+            alertBox.innerText = message;
+            document.body.appendChild(alertBox);
+            setTimeout(() => {
+                alertBox.classList.add('fade-out');
+                setTimeout(() => alertBox.remove(), 500);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

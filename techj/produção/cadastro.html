@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+    <h1>Cadastro</h1>
+    <img src="/Imagens/th__3_-removebg-preview.png" alt="Logo da Empresa" class="logo">
+    <form id="formCadastro">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome"><br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required placeholder="Digite seu e-mail"><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required placeholder="Digite sua senha"><br><br>
+
+        <button type="submit" id="btnCadastrar">Cadastrar</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('formCadastro');
+        const btnCadastrar = document.getElementById('btnCadastrar');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const senha = document.getElementById('senha').value.trim();
+
+            if (!nome || !email || !senha) {
+                alert('Preencha todos os campos!');
+                return;
+            }
+
+            console.log('Cadastro:', { nome, email, senha });
+
+            btnCadastrar.innerText = 'Cadastrando...';
+            btnCadastrar.disabled = true;
+
+            setTimeout(() => {
+                alert('Cadastro realizado com sucesso!');
+                form.reset();
+                btnCadastrar.innerText = 'Cadastrar';
+                btnCadastrar.disabled = false;
+
+                
+                window.location.href = "inicio.html"; 
+            }, 2000);
+        });
+
+    
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => input.style.backgroundColor = '#e0f7fa');
+            input.addEventListener('blur', () => input.style.backgroundColor = '');
+        });
+    </script>
+</body>
+</html>
